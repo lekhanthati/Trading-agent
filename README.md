@@ -10,7 +10,7 @@ To build an autonomous, conversational trading agent that can understand natural
 ├── predict.py         # Market prediction tool
 ├── scaler.pkl         # Scaler for prediction tool
 ├── model.pth          # Transformer Model for prediction tool
-├── Requirements.txt   # Dependencies      
+├── requirements.txt   # Dependencies      
 └── README.md         
 ```
 ## 🛠️ Tech Stack
@@ -36,7 +36,7 @@ Before running the app, make sure to set up your environment:
 
 2. Install dependencies:
    ```bash
-   pip install -r Requirements.txt
+   pip install -r requirements.txt
    pip install binance-mcp-server 
    ```
 3. Run the app:
