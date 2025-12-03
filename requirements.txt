@@ -1,0 +1,12 @@
+torch
+numpy
+pandas
+joblib
+ccxt
+fastmcp
+langchain
+langchain-core
+langchain-openai
+langchain-mcp-adapters
+streamlit
+python-dotenv
