@@ -49,19 +49,19 @@ class PositionalEncoding(nn.Module):
 
 
 class TransformerRegressor(nn.Module):
-    def __init__(self, num_features=5, d_model=256, nhead=8, num_layers=4, dropout=0.1):
+    def __init__(self, num_features=5, d_model=64, nhead=4, num_layers=2, dropout=0.2):
         super().__init__()
         self.embedding = nn.Linear(num_features, d_model)
         self.pos_encoder = PositionalEncoding(d_model)
         
         encoder_layer = nn.TransformerEncoderLayer(
-            d_model=d_model, nhead=nhead, dim_feedforward=256, dropout=0.1, batch_first=True
+            d_model=d_model, nhead=nhead, dim_feedforward=128, dropout=0.2, batch_first=True
         )
         self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=4)
         
         self.regressor = nn.Sequential(
             nn.LayerNorm(d_model),
-            nn.Linear(d_model, 64), # regressor_hidden = 64
+            nn.Linear(d_model, 32), 
             nn.ReLU(),
             nn.Dropout(0.1),
             nn.Linear(64, 1)
@@ -119,4 +119,5 @@ def predict(symbol : str = 'BTCUSDT', timeframe :  str = '1m') -> dict:
     return {'magnitude' : prediction, 'direction' : direction, 'time' : time}
 
 if __name__ == "__main__":
+
     mcp.run()
