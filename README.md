@@ -17,7 +17,7 @@ To build an autonomous, conversational trading agent that can understand natural
 
 | Technology    | Purpose                          |
 |---------------|----------------------------------|
-| **Langchain** | Framework to create agents       |
+| **LangChain** | Framework to create agents       |
 | **FastMCP**   | Library to build MCP servers     |
 | **pandas**    | Data manipulation and analysis   |
 | **numpy**     | Numerical computing operations   |
