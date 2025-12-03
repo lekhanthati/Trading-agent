@@ -71,7 +71,7 @@ class TransformerRegressor(nn.Module):
         x = self.embedding(x)
         x = self.pos_encoder(x)
         x = self.encoder(x)
-        x = x[:, -1, :]  # last timestep
+        x = x[:, -1, :]  
         out = self.regressor(x)
         return out.squeeze(-1)
 
@@ -100,7 +100,7 @@ def predict(symbol : str = 'BTCUSDT', timeframe :  str = '1m') -> dict:
     model.to(device)
 
 
-    checkpoint = torch.load("model2.pth", map_location=device, weights_only=False)
+    checkpoint = torch.load("model.pth", map_location=device, weights_only=False)
     model.load_state_dict(checkpoint['model_state_dict'])
 
     seq_scaled = scaler.transform(df[['open','high','low','close','volume']])
@@ -121,3 +121,4 @@ def predict(symbol : str = 'BTCUSDT', timeframe :  str = '1m') -> dict:
 if __name__ == "__main__":
 
     mcp.run()
+
